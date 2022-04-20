@@ -1,0 +1,20 @@
+---
+# tasks file for rancher-role
+- include_tasks: install-docker.yml
+  args:
+    apply:
+      become: yes
+      become_user: root
+  tags: docker
+- name: Clone rancher docker-compose
+  git:
+    repo: "https://github.com/polinchw/{{ repo_name }}.git"
+    dest: "/home/{{ user }}/{{ repo_name }}/"
+    clone: yes
+    update: yes
+  tags: rancher
+- name: docker-compose up
+  command: docker-compose up -d
+  args:
+    chdir: "/home/{{ user }}/{{ repo_name }}"
+  tags: rancher
