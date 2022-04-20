@@ -9,12 +9,12 @@
 - name: Clone rancher docker-compose
   git:
     repo: "https://github.com/polinchw/{{ repo_name }}.git"
-    dest: "/home/{{ user }}/{{ repo_name }}/"
+    dest: "/home/{{ ansible_user_id }}/{{ repo_name }}/"
     clone: yes
     update: yes
   tags: rancher
 - name: docker-compose up
   command: docker-compose up -d
   args:
-    chdir: "/home/{{ user }}/{{ repo_name }}"
+    chdir: "/home/{{ ansible_user_id }}/{{ repo_name }}"
   tags: rancher
