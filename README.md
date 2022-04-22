@@ -34,7 +34,7 @@ Example Playbook Commands
 
 This will install docker, docker-compose, and rancher:
 
-```ansible-playbook --private-key ~/.ssh/id_rsa -i tests/inventory tests/test.yml```
+```ansible-playbook --private-key ~/.ssh/id_rsa -i tests/inventory tests/test.yml -u polinchakb```
 
 This will install docker and docker-compose:
 
@@ -46,7 +46,7 @@ This will install rancher:
 
 This will install docker, docker-compose, and rancher and will override the location name:
 
-```ansible-playbook --private-key ~/.ssh/id_rsa -i tests/inventory tests/test.yml --extra-vars "location=test user=polinchakb"```
+```ansible-playbook --private-key ~/.ssh/id_rsa -i tests/inventory tests/test.yml -u polinchakb```
 
 License
 -------
